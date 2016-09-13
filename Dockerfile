@@ -1,4 +1,4 @@
-FROM finmason2018/alpine-java:latest
+FROM finmason/docker-alpine-java:latest
 MAINTAINER Sean Abbott "sabbott@finmason.com"
 
 #
