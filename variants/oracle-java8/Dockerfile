@@ -1,9 +1,9 @@
 FROM anapsix/docker-oracle-java8
-MAINTAINER Anastas Dancha "anapsix@random.io"
+MAINTAINER Sean Abbott "sabbott@finmason.com"
 
 #
 ## Env
-ENV SOLR_VERSION 6.0.1
+ENV SOLR_VERSION 6.2.1
 ENV SOLR solr-$SOLR_VERSION
 ENV JDBC_MYSQL_VERSION 5.1.38
 ENV JDBC_PSQL_VERSION 9.4.1207
@@ -17,9 +17,9 @@ RUN [ -e /sbin/apk ] && ( [ -e /bin/bash ] || apk add --update bash ) || \
     ( which curl || apk add --update curl ) && \
     cd /tmp && \
     echo "getting solr $SOLR_VERSION" >&2 && \
-    curl -sSL http://mirrors.gigenet.com/apache/lucene/solr/$SOLR_VERSION/$SOLR.tgz -o /tmp/$SOLR.tgz && \
+    wget http://mirrors.gigenet.com/apache/lucene/solr/$SOLR_VERSION/$SOLR.tgz -O /tmp/$SOLR.tgz && \
     mkdir -p /opt && \
-    gzip -dc /tmp/$SOLR.tgz | tar -C /opt -x && \
+    tar -C /opt -xzf /tmp/$SOLR.tgz && \
     ln -sf /opt/$SOLR /opt/solr && \
     echo "getting PSQL JDBC" >&2 && \
     curl -sSL http://jdbc.postgresql.org/download/postgresql-$JDBC_PSQL_VERSION.jar -o /opt/solr/dist/postgresql-$JDBC_PSQL_VERSION.jar && \
