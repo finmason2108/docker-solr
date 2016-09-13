@@ -1,5 +1,5 @@
-FROM anapsix/alpine-java:jre8
-MAINTAINER Anastas Dancha "anapsix@random.io"
+FROM finmason2018/alpine-java:latest
+MAINTAINER Sean Abbott "sabbott@finmason.com"
 
 #
 ## Env
