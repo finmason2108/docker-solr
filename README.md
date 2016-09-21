@@ -13,6 +13,10 @@ Alpine image also includes BASH, OpenSSL and ca-certificates packages.
 | 5-oracle-java8                 | Solr 5 & Oracle Java8 over Ubuntu Trusty  | [![](https://badge.imagelayers.io/anapsix/solr:oracle-java8.svg)](https://imagelayers.io/?images=anapsix/solr:5-oracle-java8) |
 | 5-openjdk-java8                | Solr 5 & OpenJDK Java8 over Debian Jessie | [![](https://badge.imagelayers.io/anapsix/solr:openjdk-java8.svg)](https://imagelayers.io/?images=anapsix/solr:5-openjdk-java8) |
 
+## Builds
+
+When you push to master, check https://hub.docker.com/r/finmason/docker-solr/builds/ to make sure that the latest build worked.
+
 ## Usage
 
 Here is how I start the container, while mounting Solr core directories inside the container instance.
