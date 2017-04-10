@@ -17,7 +17,7 @@ RUN [ -e /sbin/apk ] && ( [ -e /bin/bash ] || apk add --update bash ) || \
     ( which curl || apk add --update curl ) && \
     cd /tmp && \
     echo "getting solr $SOLR_VERSION" >&2 && \
-    wget http://mirrors.gigenet.com/apache/lucene/solr/$SOLR_VERSION/$SOLR.tgz -O /tmp/$SOLR.tgz && \
+    wget http://archive.apache.org/dist//lucene/solr/$SOLR_VERSION/$SOLR.tgz -O /tmp/$SOLR.tgz && \
     mkdir -p /opt && \
     tar -C /opt -xzf /tmp/$SOLR.tgz && \
     ln -sf /opt/$SOLR /opt/solr && \
@@ -32,6 +32,7 @@ RUN [ -e /sbin/apk ] && ( [ -e /bin/bash ] || apk add --update bash ) || \
     rm -rf /tmp/*
 ##
 #
+ADD ./scripts/one_index_to_rule_them.sh /usr/local/bin/one_index_to_rule_them.sh
 
 EXPOSE 8983
 ADD ./docker-entrypoint.sh /entrypoint.sh

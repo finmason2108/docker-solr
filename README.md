@@ -69,3 +69,12 @@ I place this script (start.sh) into directory containing my "cores". Each core i
           |-core.properties
 
 and just run start.sh
+
+## Merging solr indexes
+We've included a script to merge indexes in this. Collect all the indices you want to merge in a single directory, then run a temporary container with a volume mount like so:
+
+```
+docker run -it --rm -v /path/to/indices:/tmp/indices finmason/docker-solr one_index_to_rule_them.sh /tmp/indices/test_index/ /tmp/indices
+```
+
+Note that the script is brittle and may break if you don't pass things just so. We'll try and make it more robust later.
